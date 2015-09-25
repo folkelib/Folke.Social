@@ -1,0 +1,4 @@
+.vs
+*.user
+src/Folke.Social.Test/config.json
+*.lock.json
