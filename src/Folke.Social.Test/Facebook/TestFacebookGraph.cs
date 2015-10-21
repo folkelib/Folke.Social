@@ -23,6 +23,7 @@ namespace Folke.Social.Test.Facebook
             Assert.Equal("Sidoine", identity.FirstName);
             Assert.Equal("De Wispelaere", identity.LastName);
             Assert.Equal("Sidoine De Wispelaere", identity.Nickname);
+            Assert.Equal("sidoine@sidoine.net", identity.Email);
         }
 
         [Fact]
@@ -30,6 +31,12 @@ namespace Folke.Social.Test.Facebook
         {
             var picture = await graph.GetPictureAsync("10153051799743005");
             Assert.NotEmpty(picture);
+        }
+
+        [Fact]
+        public async void FacebookGraph_GetFriendsAsync()
+        {
+            await graph.GetFriendsAsync("10153051799743005");
         }
     }
 }

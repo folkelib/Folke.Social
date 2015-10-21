@@ -6,5 +6,6 @@
         string LastName { get; }
         string Nickname { get; }
         string Id { get; }
+        string Email { get; }
     }
 }

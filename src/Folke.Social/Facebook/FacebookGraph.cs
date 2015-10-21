@@ -24,7 +24,7 @@ namespace Folke.Social.Facebook
 
         public async Task<ISocialIdentity> GetIdentityAsync(string userId)
         {
-            return await GetAsync<FacebookUser>(userId, "name,id,first_name,last_name");
+            return await GetAsync<FacebookUser>(userId, "name,id,first_name,last_name,email");
         } 
 
         public Task<byte[]> GetPictureAsync(string userId)

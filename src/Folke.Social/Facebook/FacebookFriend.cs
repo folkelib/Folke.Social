@@ -12,5 +12,7 @@ namespace Folke.Social.Facebook
         public string Nickname { get; set; }
         [JsonProperty("id")]
         public string Id { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
     }
 }

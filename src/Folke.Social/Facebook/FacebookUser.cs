@@ -18,5 +18,7 @@ namespace Folke.Social.Facebook
         public string UserName { get; set; }
         [JsonProperty("locale")]
         public string Locale { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
     }
 }
