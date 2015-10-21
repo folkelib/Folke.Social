@@ -13,7 +13,7 @@ namespace Folke.Social.Test.Facebook
             var configurationBuilder = new ConfigurationBuilder("");
             configurationBuilder.AddJsonFile("config.json");
             var configuration = configurationBuilder.Build();
-            graph = new FacebookGraph(configuration["facebook:appId"], configuration["facebook:appSecret"]);
+            graph = new FacebookGraph(new FacebookOptions { AppId = configuration["facebook:appId"], AppSecret = configuration["facebook:appSecret"]});
         }
 
         [Fact]

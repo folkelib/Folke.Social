@@ -15,10 +15,10 @@ namespace Folke.Social.Facebook
         
         private string token;
 
-        public FacebookGraph(string appId, string appSecret)
+        public FacebookGraph(FacebookOptions options)
         {
-            this.appId = appId;
-            this.appSecret = appSecret;
+            this.appId = options.AppId;
+            this.appSecret = options.AppSecret;
             client = new HttpClient();
         }
 
