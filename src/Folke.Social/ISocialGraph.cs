@@ -7,6 +7,8 @@ namespace Folke.Social
     {
         Task<ISocialIdentity> GetIdentityAsync(string userId);
         Task<byte[]> GetPictureAsync(string userId);
+        Task<string> GetPictureUrlAsync(string userId, int width, int height);
         Task<IEnumerable<ISocialIdentity>> GetFriendsAsync(string userId);
+        ProviderType Type { get; }
     }
 }

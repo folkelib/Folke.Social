@@ -32,11 +32,19 @@ namespace Folke.Social.Facebook
             return GetAsync(userId + "/picture");
         }
 
-        public async Task<T> GetAsync<T>(string path, string fields = null)
+        public async Task<string> GetPictureUrlAsync(string userId, int width, int height)
+        {
+            return
+                (await GetAsync<FacebookData<FacebookPicture>>(userId + "/picture", null, $"width={width}&height={height}&redirect=false")).Data.Url;
+        }
+
+        public async Task<T> GetAsync<T>(string path, string fields = null, string queryString = null)
         {
             var url = "https://graph.facebook.com/" + path + "?access_token=" + Uri.EscapeUriString(await GetAppToken());
             if (fields != null)
                 url += "&fields=" + fields;
+            if (queryString != null)
+                url += "&" + queryString;
             var text = await client.GetStringAsync(url);
             return JsonConvert.DeserializeObject<T>(text);
         }
@@ -45,7 +53,9 @@ namespace Folke.Social.Facebook
         {
             return (await GetAsync<FacebookFriends>($"{userId}/friends")).data;
         }
-        
+
+        public ProviderType Type { get; } = ProviderType.Facebook;
+
         public async Task<byte[]> GetAsync(string path, string fields = null)
         {
             var url = "https://graph.facebook.com/" + path + "?access_token=" + await GetAppToken();

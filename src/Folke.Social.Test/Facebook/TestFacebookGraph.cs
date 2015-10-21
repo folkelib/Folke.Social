@@ -34,6 +34,13 @@ namespace Folke.Social.Test.Facebook
         }
 
         [Fact]
+        public async void FacebookGraph_GetPictureUrlAsync()
+        {
+            var picture = await graph.GetPictureUrlAsync("10153051799743005", 200, 200);
+            Assert.True(picture.StartsWith("https://"));
+        }
+
+        [Fact]
         public async void FacebookGraph_GetFriendsAsync()
         {
             await graph.GetFriendsAsync("10153051799743005");
