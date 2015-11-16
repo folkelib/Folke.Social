@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.Framework.OptionsModel;
 using Newtonsoft.Json;
 
 namespace Folke.Social.Facebook
@@ -15,10 +16,10 @@ namespace Folke.Social.Facebook
         
         private string token;
 
-        public FacebookGraph(FacebookOptions options)
+        public FacebookGraph(IOptions<FacebookOptions> options)
         {
-            this.appId = options.AppId;
-            this.appSecret = options.AppSecret;
+            appId = options.Value.AppId;
+            appSecret = options.Value.AppSecret;
             client = new HttpClient();
         }
 
@@ -69,7 +70,7 @@ namespace Folke.Social.Facebook
             var url = "https://graph.facebook.com/" + path;
             var queryString = new Dictionary<string, string>();
             var type = parameters.GetType();
-            foreach (var parameter in type.GetProperties())
+            foreach (var parameter in type.GetTypeInfo().DeclaredProperties)
             {
                 queryString.Add(parameter.Name, parameter.GetValue(parameters, null).ToString());
             }

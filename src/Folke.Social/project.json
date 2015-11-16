@@ -6,7 +6,8 @@
   "projectUrl": "",
   "licenseUrl": "",
   "dependencies": {
-    "Newtonsoft.Json": "7.0.1"
+    "Newtonsoft.Json": "7.0.1",
+    "Microsoft.Framework.OptionsModel": "1.0.0-beta8"
   },
 
   "frameworks": {
