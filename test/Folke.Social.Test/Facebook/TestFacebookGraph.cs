@@ -1,5 +1,7 @@
-﻿using Folke.Social.Facebook;
-using Microsoft.Framework.Configuration;
+﻿using System;
+using Folke.Social.Facebook;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.OptionsModel;
 using Xunit;
 
 namespace Folke.Social.Test.Facebook
@@ -8,12 +10,28 @@ namespace Folke.Social.Test.Facebook
     {
         private readonly FacebookGraph graph;
 
+        private class Options<T> : IOptions<T>
+            where T: class, new()
+        {
+            public Options(Action<T> options)
+            {
+                options(Value);
+            }
+
+            public T Value { get; } = new T();
+        }
+
         public TestFacebookGraph()
         {
-            var configurationBuilder = new ConfigurationBuilder("");
+            var configurationBuilder = new ConfigurationBuilder();
             configurationBuilder.AddJsonFile("config.json");
             var configuration = configurationBuilder.Build();
-            graph = new FacebookGraph(new FacebookOptions { AppId = configuration["facebook:appId"], AppSecret = configuration["facebook:appSecret"]});
+            var option = new Options<FacebookOptions>(options =>
+            {
+                options.AppSecret = configuration["facebook:appSecret"];
+                options.AppId = configuration["facebook:appId"];
+            });
+            graph = new FacebookGraph(option);
         }
 
         [Fact]

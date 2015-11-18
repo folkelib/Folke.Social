@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.Framework.OptionsModel;
+using Microsoft.Extensions.OptionsModel;
 using Newtonsoft.Json;
 
 namespace Folke.Social.Facebook
