@@ -3,20 +3,15 @@
   "description": "Folke.Social Class Library",
   "authors": [ "Sidoine" ],
   "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "projectUrl": "https://github.com/folkelib/Folke.Social",
+  "licenseUrl": "http://opensource.org/licenses/MIT",
   "dependencies": {
     "Newtonsoft.Json": "7.0.1",
     "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final"
   },
 
   "frameworks": {
-    "dnx451": {
-      "frameworkAssemblies": {
-        "System.Net.Http": "4.0.0.0"
-      }
-    },
-    "dnxcore50": {
+    "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-*",
         "System.Collections": "4.0.11-beta-*",
