@@ -4,3 +4,5 @@ src/Folke.Social.Test/config.json
 *.lock.json
 test/Folke.Social.Test/config.json
 *.v2.ncrunchsolution
+bin
+obj

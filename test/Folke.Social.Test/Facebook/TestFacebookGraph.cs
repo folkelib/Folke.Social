@@ -1,7 +1,7 @@
 ﻿using System;
 using Folke.Social.Facebook;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.OptionsModel;
+using Microsoft.Extensions.Options;
 using Xunit;
 
 namespace Folke.Social.Test.Facebook
