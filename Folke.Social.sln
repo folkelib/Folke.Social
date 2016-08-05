@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C816E8B5-712F-4D15-B2E8-5C79B6F02EAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02A03BB9-A270-4581-B1BA-115749A9A684}"
 	ProjectSection(SolutionItems) = preProject
+		build.ps1 = build.ps1
 		global.json = global.json
 		NuGet.Config = NuGet.Config
 	EndProjectSection
