@@ -1,6 +1,7 @@
 # Folke.Social
 Fetch data from social networks (only Facebook in the current version, other identity providers are coming).
 
+[![Build status](https://ci.appveyor.com/api/projects/status/qu40xckg9smvx2su?svg=true)](https://ci.appveyor.com/project/acastaner/folke-social)
 ## Usage
 
 ```cs
